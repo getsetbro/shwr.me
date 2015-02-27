@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Shower Presentation Engine</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=792, user-scalable=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<link rel="stylesheet" href="shower/themes/ribbon/styles/screen.css">
+</head>
+<body class="list">
+	<header class="caption">
+		<h1>Shower Presentation Engine</h1>
+		<p>Yours Truly, Famous Inc.</p>
+	</header>
+	<section class="slide cover" id="Cover"><div>
+		<h2>Prototype Driven Development</h2>
+		<p>- for web app projects ( custom dev as well as CMS ).</p>
+		<img src="pictures/cover.jpg" alt="">
+		<!--
+			To apply styles to the certain slides
+			set slide ID to get needed elements
+			-->
+		<style>
+			#Cover h2 {
+				margin:30px 0 0;
+				color:#FFF;
+				text-align:center;
+				font-size:70px;
+				}
+			#Cover p {
+				margin:10px 0 0;
+				text-align:center;
+				color:#FFF;
+				font-style:italic;
+				font-size:20px;
+				}
+				#Cover p a {
+					color:#FFF;
+					}
+		</style>
+	</div></section>
+
+	<section class="slide">
+	<div>
+		<h2>=|</h2>
+		<p>Front-end dev has been the wild wild west, especially in CMS land, but with recent tools and browser capabilities we can take control.</p>
+		<p>Remember how Sketch Flow was made and the effort put into wireframes for a SilverLight project would not be throw-away work? No? Well the concept was great. Let's do that with Prototypes for web app development.</p>
+	</div>
+	</section>
+
+	<section class="slide">
+	<div>
+		<h2>Contents</h2>
+		<ol>
+			<li>Prototypes are an ongoing POC for developers.</li>
+			<li>CSS conventions for reusable components.</li>
+			<li>Patterns for making modular JS.</li>
+			<li>Icons, images, SVG.</li>
+			<li>Visual Studio solution setup with open source utilities (NodeJS, NPM, Grunt, Gulp)</li>
+		</ol>
+	</div>
+	</section>
+
+	<section class="slide"><div>
+		<strong>Prototyping - A</strong>
+		<p>Prototypes are more valuable to then wireframes or designs - many requirements change once the client can test and move what they have requested. Most often the design is signed off on before anyone has thought about how it work in different widths.</p>
+		<p>A prototype will provide proof of concepts and be a source of documentation through out the project. Such as "Does this carousel work in any width?" The place to test that is the prototype.</p>
+	</div></section>
+	<section class="slide"><div>
+		<strong>Prototyping - B</strong>
+		<p>Once delivery begins should time be spent on maintaining the prototype? The answer is "yes" if time spent on the prototype equals code used in the actual app. Otherwise the effort would be duplicated.</p>
+		<p>Example: PatternLab is a prototype + style guide in one. Shows the single components or groups and shows the code used to build them. Components can be demo'd as they are completed. PatternLab in particular helps to show if your components are ready for re-use. It shows the components alone as well as next to other components.</p>
+	</div></section>
+	<section class="slide"><div>
+		<strong>Prototyping - C</strong>
+		<p>Proper setup of build tools means that the exact same code that builds the prototype will be used for the production site.</p>
+		<p>This might lead to the integration team finding that the components work well in the prototype but have bugs after integration. At this point the either team would make the needed changes with both integration and the prototype in mind. Remember that a prototype with something like PatternLab is continuous testing of the UI.</p>
+	</div></section>
+	<section class="slide"><div>
+		<strong>CSS</strong>
+		<p>As a base use the latest bootstrap. Everybody learn bootstrap. Even designers, design for bootstrap grid. From there you will be able to transfer your knowledge to other UI frameworks.</p>
+		<p>If you want different margins then customize bootstrap before you download it.</p>
+		<p>Only build something new if bootstrap does not provide it - it usually does provide it.</p>
+	</div></section>
+	<section class="slide"><div>
+		<strong>CSS Conventions</strong>
+		<p>Then when we do need to create something new use conventions. Building without a having re-use in mind is a shot in the foot.</p>
+		<p>SUIT CSS is a methodology focused on improving the CSS authoring experience for component-based development. Modularity, Cohesion, Composition and configuration, Loose coupling, Soft encapsulation. <a href="https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md">suitcss naming-conventions</a></p>
+	</div></section>
+	<section class="slide">
+<div><p>For a full demo see:<br><a href="http://jsbin.com/lumeqa/2/">http://jsbin.com/lumeqa/2/</a></p>
+<p>It is a learning curve for sure but the results are worth it. This will scale from small to large projects.</p>
+</div>
+	</section>
+	<section class="slide"><div>
+		<h2>JavaScript</h2>
+		<p>Declarative HTML - You can tell what is by looking at the markup.
+		Elements affected by JS should have separate css classes that look different: "js-SiteHeader" or potentially data-attributes. That way you can safely change style classes but carefully change JS classes.</p>
+		<p> class="icon-class js-icon" data-icon="iconJS"<br>
+		$(".js-icon").on(...);<br>
+		$("[data-icon]").on(...);</p>
+	</div></section>
+	<section class="slide"><div>
+		<b>JS Patterns</b>
+		<p>
+		Modular pattern / Revealing Pattern <br>
+		No conflicts, less global variables <br>
+		Reusable <br>
+		http://jsbin.com/lumeqa/7/edit?html,js,output <br>
+		Or just write in the jQuery plug-in format. <br>
+		http://learn.jquery.com/plugins/basic-plugin-creation/ <br>
+		http://jsbin.com/lumeqa/8/edit?html,js,output
+		</p>
+	</div></section>
+	<section class="slide"><div>
+		<b>SVG &amp; Font icon opinions</b>
+		<p>All browsers since IE9 do SVG so it's time. No more IMG for icons. http://caniuse.com/#feat=svg <br>
+Automated grunt task <br>
+Http://grunticon.com <br>
+Font icons are easy to use. Their icons pick up the font color. Font icons have less support, like on mobile.</p>
+	</div></section>
+	<section class="slide"><div>
+		<h2>Build System</h2>
+		<p>With an enhanced build system we can build the Prototype/Style Guide inline with our web app. <br>
+			Why not Nuget and MSBuild? Hanselman answered. The TL;DR is use both. <br>
+			Intalls:
+			</p>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>demo</h2>
+		<p>p</p>
+	</div></section>
+	<section class="slide"><div>
+		<h2>done</h2>
+		<p>p</p>
+	</div></section>
+	<!--
+		To hide progress bar from entire presentation
+		just remove “progress” element.
+		-->
+	<div class="progress"><div></div></div>
+	<script src="shower/shower.min.js"></script>
+	<!-- Copyright © 2014 Yours Truly, Famous Inc. -->
+	<!-- Photos by John Carey, fiftyfootshadows.net -->
+</body>
+</html>
